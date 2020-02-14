@@ -1,10 +1,7 @@
-  
 {
     "require":{
-        "google/cloud": "^0.72",
-		
-        "doctrine/orm": "^2.6.2",
-        "symfony/yaml": "2.*"
+        "kreait/firebase-php": "^4.39",
+        "google/cloud": "^0.125.0"
     },
 	"autoload": {
         "psr-0": {"": "src/"}
