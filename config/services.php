@@ -35,11 +35,12 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
     'firebase' => [
-        'api_key' => 'api key taken from firebase',
-        'auth_domain' => 'auth domain taken from firebase',
-        'database_url' => 'database uri taken from firebase',
-        'secret' => 'db secret taken from firebase',
-        'storage_bucket' => 'storage bucket taken from firebase',
+
+        'api_key' => 'AIzaSyA8iMfEFwgM8h3WyCNGrBV7jK1w0D4xNh0',
+        'auth_domain' => 'wbbpasswordmanager.firebaseapp.com',
+        'database_url' => 'https://wbbpasswordmanager.firebaseio.com',
+        'secret' => 'eiAp5Armx42BNDp02Aitwry9YcYhUM0cgED5dE5m',
+        'storage_bucket' => 'wbbpasswordmanager.appspot.com',
     ]
 
 ];
