@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.5.9",
         "mpociot/laravel-firebase-sync": "^1.0",
-        "laravel/framework": "5.2.*"
+        "laravel/framework": "5.2.*",
+        "google/cloud": "^0.72"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
