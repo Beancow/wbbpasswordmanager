@@ -12,6 +12,7 @@
 # below:
 .git
 .gitignore
+.gitattributes
 wbbpasswordmanager-b8f45a2e81e3.json
 
 # PHP Composer dependencies:
