@@ -6,3 +6,12 @@ runtime: php72
 # run a long-running PHP script as a worker process (e.g. "php worker.php").
 #
 # entrypoint: serve index.php
+env_variables:
+
+  APP_KEY: base64:YR/+iazhLopnv7GiyWGRuKzdNNNCBHQmxVJQBgj3nn4=
+  APP_STORAGE: /tmp
+  VIEW_COMPILED_PATH: /tmp
+  SESSION_DRIVER: cookie
+  CACHE_DRIVER: file
+  APP_ENV: local
+  APP_DEBUG: true

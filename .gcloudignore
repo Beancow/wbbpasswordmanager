@@ -13,7 +13,8 @@
 .git
 .gitignore
 .gitattributes
+composer.lock
 wbbpasswordmanager-b8f45a2e81e3.json
-
+.env
 # PHP Composer dependencies:
 /vendor/

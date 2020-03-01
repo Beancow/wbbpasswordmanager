@@ -8,8 +8,9 @@
         "php": ">=5.5.9",
         "mpociot/laravel-firebase-sync": "^1.0",
         "laravel/framework": "5.2.*",
-        "google/cloud": "^0.72"
-    },
+        "google/cloud": "^0.72",
+        "laravel-notification-channels/backport": "^1.0"
+    }, 
     "require-dev": {
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
@@ -39,10 +40,18 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "@makedir \/tmp\/storage\/framework",
+            "@makedir \/tmp\/storage\/framework\/sessions",
+            "@makedir \/tmp\/storage\/framework\/views",
+            "@makedir \/tmp\/storage\/framework\/cache",
             "php artisan optimize"
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@makedir \/tmp\/storage\/framework",
+            "@makedir \/tmp\/storage\/framework\/sessions",
+            "@makedir \/tmp\/storage\/framework\/views",
+            "@makedir \/tmp\/storage\/framework\/cache",
             "php artisan optimize"
         ]
     },

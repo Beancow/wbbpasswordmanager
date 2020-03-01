@@ -25,7 +25,6 @@ $app = new Illuminate\Foundation\Application(
 | incoming requests to this application from both the web and CLI.
 |
 */
-
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
     App\Http\Kernel::class
@@ -41,15 +40,18 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+# [START] Add the following block to `bootstrap/app.php`
 /*
 |--------------------------------------------------------------------------
-| Return The Application
+| Set Storage Path
 |--------------------------------------------------------------------------
 |
-| This script returns the application instance. The instance is given to
-| the calling script so we can separate the building of the instances
-| from the actual running of the application and sending responses.
+| This script allows you to override the default storage location used by
+| the  application.  You may set the APP_STORAGE environment variable
+| in your .env file,  if not set the default location will be used
 |
 */
 
+$app->useStoragePath(env('APP_STORAGE', base_path() . '/storage'));
+# [END]
 return $app;

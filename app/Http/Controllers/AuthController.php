@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Validator;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller as Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
+    use ValidatesRequests;
     /**
      * Create user
      *
@@ -20,9 +21,9 @@ class AuthController extends Controller
      * @param  [string] password_confirmation
      * @return [string] message
      */
-    public function register(Request $request)
+    public function signup(Request $request)
     {
-        $request->validate([
+        $this->validate($request,[
             'name' => 'required|string',
             'email' => 'required|string|email|unique:users',
             'password' => 'required|string|confirmed'
@@ -57,7 +58,7 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        $request->validate([
+        $this->validate($request,[
             'email' => 'required|string|email',
             'password' => 'required|string',
             'remember_me' => 'boolean'
