@@ -64,9 +64,10 @@ class AuthController extends Controller
             'remember_me' => 'boolean'
         ]);
 
-        $credentials = request(['email', 'password']);
+        $credentials['email'] = \request('email');;
+        $credentials['password'] = \request('password');
         $credentials['active'] = 1;
-        $credentials['deleted_at'] = null;
+        $credentials['deleted_at'] = "0000-00-00 00:00:00";
 
         if (!Auth::attempt($credentials))
             return response()->json([
@@ -83,7 +84,7 @@ class AuthController extends Controller
         return response()->json([
             'success' => true,
             'id' => $user->id,
-            'name' => $user->first_name,
+            'name' => $user->name,
             'email' => $user->email,
             'access_token' => $tokenResult->accessToken,
             'token_type' => 'Bearer',
