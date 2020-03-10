@@ -40,18 +40,12 @@
         ],
         "post-install-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postInstall",
-            "@makedir \/tmp\/storage\/framework",
-            "@makedir \/tmp\/storage\/framework\/sessions",
-            "@makedir \/tmp\/storage\/framework\/views",
-            "@makedir \/tmp\/storage\/framework\/cache",
             "php artisan optimize"
+
         ],
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
-            "@makedir \/tmp\/storage\/framework",
-            "@makedir \/tmp\/storage\/framework\/sessions",
-            "@makedir \/tmp\/storage\/framework\/views",
-            "@makedir \/tmp\/storage\/framework\/cache",
+            "php artisan passport:install",
             "php artisan optimize"
         ]
     },
