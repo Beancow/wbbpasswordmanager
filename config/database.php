@@ -49,11 +49,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', 'localhost'),
+            'host' => env('DB_HOST', 'wbbmanagerdb.c469l70mtbba.eu-west-2.rds.amazonaws.com'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'wbbmanager'),
+            'database' => env('DB_DATABASE', 'wbb'),
             'username' => env('DB_USERNAME', 'wbb'),
-            'password' => env('DB_PASSWORD', '#cS4&utF%467e$eUDuXKz7@y'),
+            'password' => env('DB_PASSWORD', '6Mnv57rX4b58'),
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',

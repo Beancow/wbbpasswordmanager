@@ -12,9 +12,13 @@ class CreatePasswordEntriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('password_entries', function (Blueprint $table) {
+        Schema::create('password_entrie', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->integer('uidO')->unsigned();
+            $table->foreign("uid")->references('id')->on('users');
+            $table->string("site",255);
+            $table->string("passwordhash",2500);
         });
     }
 

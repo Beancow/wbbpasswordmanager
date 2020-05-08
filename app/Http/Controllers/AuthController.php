@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Support\Facades\Auth;
+Use \Carbon\Carbon;
 class AuthController extends Controller
 {
     use ValidatesRequests;
@@ -32,6 +33,7 @@ class AuthController extends Controller
         $user = new User([
             'name' => $request->name,
             'email' => $request->email,
+            'activate'=>1,
             'password' => bcrypt($request->password)
         ]);
 
@@ -66,7 +68,6 @@ class AuthController extends Controller
 
         $credentials['email'] = \request('email');;
         $credentials['password'] = \request('password');
-        $credentials['active'] = 1;
         $credentials['deleted_at'] = "0000-00-00 00:00:00";
 
         if (!Auth::attempt($credentials))
@@ -99,7 +100,7 @@ class AuthController extends Controller
      *
      * @return [string] message
      */
-    public function logout(Request $request)
+    public function logout2(Request $request)
     {
         $request->user()->token()->revoke();
         return response()->json([
@@ -112,7 +113,7 @@ class AuthController extends Controller
      *
      * @return [json] user object
      */
-    public function user(Request $request)
+    public function user2(Request $request)
     {
         return response()->json($request->user());
     }

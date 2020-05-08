@@ -20,10 +20,28 @@ Route::group([
     Route::post('login', 'AuthController@login');
     Route::post('signup', 'AuthController@signup');
 
-    Route::group([
-        'middleware' => 'auth:api'
-    ], function() {
-        Route::get('logout', 'AuthController@logout');
-        Route::get('user', 'AuthController@user');
-    });
+
+});
+Route::group([
+    'middleware' => 'auth:api',
+    'prefix' => 'auth'
+], function() {
+    Route::post('logout', 'AuthController@logout2');
+    Route::get('user', 'AuthController@user2');
+});
+Route::group([
+    'middleware' => 'auth:api',
+    'prefix' => 'security'
+], function () {
+    Route::get('breaches', 'HaveIBeenPwnd@breaches');
+    Route::get('password', 'HaveIBeenPwnd@password');
+    Route::post('password', 'HaveIBeenPwnd@password');
+
+});
+Route::group([
+    'prefix' => 'user'
+], function() {
+    Route::post('addpassword', 'UserController@AddUserPassword');
+    Route::post('updatepassword', 'UserController@UpdateUserPassword');
+    Route::get('getpasswords', 'UserController@GetPasswords');
 });
