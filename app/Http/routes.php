@@ -43,5 +43,5 @@ Route::group([
 ], function() {
     Route::post('addpassword', 'UserController@AddUserPassword');
     Route::post('updatepassword', 'UserController@UpdateUserPassword');
-    Route::get('getpasswords', 'UserController@GetPasswords');
+    Route::post('getpasswords', 'UserController@GetPasswords');
 });

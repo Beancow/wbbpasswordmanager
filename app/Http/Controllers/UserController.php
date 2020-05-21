@@ -13,11 +13,12 @@ class UserController extends Controller
     public function AddUserPassword(Request $request){
 
         $this->validate($request,[
+            'uid'=>'required|int',
             'site' => 'required|string',
             'password' => 'required|string',
         ]);
         $passwordEntry = new PasswordEntry();
-        $passwordEntry->setUId(1);
+        $passwordEntry->setUId($request->uid);
         $passwordEntry->setSite($request->site);
         $passwordEntry->setPassword($request->password);
 
@@ -38,6 +39,9 @@ class UserController extends Controller
         return response()->json($passwordEntry);
     }
     public function GetPasswords(Request $request){
-        return response()->json(  PasswordEntry::where("uid", '=',$request->id)->get());
+        $this->validate($request,[
+            'uid'=>'required|int'
+        ]);
+        return response()->json(  PasswordEntry::where("uid", '=',$request->uid)->get());
     }
 }
